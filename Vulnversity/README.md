@@ -17,7 +17,7 @@ VulnUniversity
  I've used this room as a challenge, therefore my solution is a bit different from the one created by TryHackMe.
 
 ## Scanning
-I found a web server running on port 3333. The `index` page was a simple `HTML template without any helpful information or links.
+I found a web server running on port 3333. The `index` page was a simple `HTML` template without any helpful information or links.
 
 ```
 PORT     STATE SERVICE     VERSION
