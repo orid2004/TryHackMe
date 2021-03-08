@@ -35,4 +35,6 @@ To get better knowledge about the webserver, I performed an advanced scan. Nessu
 
 Trying to exploit the upload form, the webserver wasn't accepting any file extension. To solve this issue, I intercepted the `POST` request and brute-forced multiple extensions. The plan was to try every helpful extension, though I used a much smaller wordlist from TryHackMe to save time.
 
-The 5th `POST` request I sent was successful. The server accepted a `.phtml` file and sent a success message. I used the vulnerability to upload and execute a PHP reverse shell, renamed to `.phtml`. The user flag was under `/home/bill/user.txt`.
+![image](https://user-images.githubusercontent.com/64078770/110393856-fb430580-8073-11eb-88b6-f986ed24dbbc.png)
+
+The 5th `POST` request I sent was successful. The server accepted a `.phtml` file and sent a success message. I used the vulnerability to upload and execute a `PHP` reverse shell, renamed to `shell.phtml`. I waited for the host to connect, and the user flag was inside `/home/bill/user.txt`.
