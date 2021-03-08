@@ -14,7 +14,7 @@ VulnUniversity
 
 
 ***NOTE***  
- I've used this room as a challenge, therefore my solution is a bit different from the one created by TryHackMe.
+ I've used this room as a challenge... My solution might be different from TryHackMe's.
 
 ## Scanning
 I found a web server running on port 3333. The `index` page was a simple `HTML` template without any helpful information or links.
@@ -29,10 +29,10 @@ PORT     STATE SERVICE     VERSION
 3333/tcp open  http        Apache httpd 2.4.18 
 ```
 
-To find better knowledge about the webserver, I performed an advanced scan. Nessus mentioned a browsable directory vulnerability which led me to a `/internal`. The `php` index page had an upload file form.
+To get better knowledge about the webserver, I performed an advanced scan. Nessus mentioned a browsable directory vulnerability which led me to a `/internal` directory. The `php` index page had an upload file form.
 
 ## Exploiting
 
-Trying to exploit the upload form, the webserver wasn't accepting any file extension. To solve this issue, I intercept the `POST` request and brute-forced multiple extensions. The plan was to try every helpful extension, though I used a much smaller wordlist from TryHackMe to save time.
+Trying to exploit the upload form, the webserver wasn't accepting any file extension. To solve this issue, I intercepted the `POST` request and brute-forced multiple extensions. The plan was to try every helpful extension, though I used a much smaller wordlist from TryHackMe to save time.
 
 The 5th `POST` request I sent was successful. The server accepted a `.phtml` file and sent a success message. I used the vulnerability to upload and execute a PHP reverse shell, renamed to `.phtml`. The user flag was under `/home/bill/user.txt`.
