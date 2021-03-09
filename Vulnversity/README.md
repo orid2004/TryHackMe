@@ -38,3 +38,11 @@ Trying to exploit the upload form, the webserver wasn't accepting any file exten
 ![image](https://user-images.githubusercontent.com/64078770/110393856-fb430580-8073-11eb-88b6-f986ed24dbbc.png)
 
 The 5th `POST` request I sent was successful. The server accepted a `.phtml` file and sent a success message. I used the vulnerability to upload and execute a `PHP` reverse shell, renamed to `shell.phtml`. I waited for the host to connect, and the user flag was inside `/home/bill/user.txt`.
+
+
+## Credits
+Ori David  
+[TryHackMe](https://tryhackme.com/p/tryhackme) 
+
+## Contact
+orid2004@gmail.com
