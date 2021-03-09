@@ -34,7 +34,7 @@ SITE CPTO /var/tmp/id_rsa
 
 
 ## Privilege Escalation
-[TryHackMe](https://tryhackme.com/p/tryhackme) has the credit for this solution, as I missed it. The idea was to find a binary suid file, that executes another binary file as root. The `/usr/bin/menu` file matched the requirements. TryHackMe executed the `strings` command and found that `menu` executes `curl` as root. We could exploit this issue by creating a `curl` file (which executes the shell), adding it to the head of the `PATH` variable, and executing the `menu` binary again. 
+[TryHackMe](https://tryhackme.com/p/tryhackme) has the credit for this solution, as I missed it. The idea was to find a binary suid file, that executes another binary file as root. The `/usr/bin/menu` file matched the requirements. TryHackMe executed the `strings` command and confirmed that `menu` executes `curl` as root. We can exploit this issue by creating a `curl` file which executes the shell. Adding its path to the head of the `PATH` variable, we can execute it as root, by running `/bin/usr/menu` as kenobi. 
 
 ## Credits
 Ori David  
